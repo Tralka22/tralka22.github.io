@@ -1,0 +1,27 @@
+body {
+  padding: 0;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+}
+
+h1 {
+  width: 260px;
+  font-size: 36px;
+  line-height: 36px;
+}
+
+h2 {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #cccccc;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  color: #999999;
+}
