@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,height=device-height">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<title>Стробоскоп</title>
+	</head>
+	<body padding=0px margin=0>
+	<canvas class="stroboscope" width=1920 height=1080 padding=0></canvas>
+	<script>
+	function draw()
+	{
+		let canvas = document.querySelector('.stroboscope');
+		let ctx = canvas.getContext('2d');
+		let full_colors = ['Black', 'White', 'Red', 'Green', 'Blue', 'Cyan', 'Magenta', 'Yellow'];
+		let colors = ['Red', 'Black'];
+		let w = canvas.width
+		let h = canvas.height
+		ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+		ctx.fillRect(0, 0, w, h * 2);
+	}
+	setInterval(draw, 1);
+	</script>
+	</body>
+</html>
