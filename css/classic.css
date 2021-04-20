@@ -7,6 +7,11 @@ body {
   color: #000000;
 }
 
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
 h1 {
   width: 260px;
   font-size: 36px;
@@ -26,13 +31,6 @@ footer {
   display: flex;
   justify-content: space-between;
   color: #777777;
-}
-
-blink, .blink {
-  -webkit-animation: blink 1s step-end infinite;
-  -moz-animation: blink 1s step-end infinite;
-  -o-animation: blink 1s step-end infinite;
-  animation: blink 1s step-end infinite;
 }
 
 @-webkit-keyframes blink {
