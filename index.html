@@ -9,6 +9,14 @@
 <link rel="icon" href="img/snake.png" type="image/png">
 <link rel="apple-touch-icon" href="img/snake.png">
 <title>сайт тралки22</title>
+  <style>
+        #sussus {
+            outline: 1px dashed #ccc;
+            width: 960px;
+            height: 540px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 <audio src="snd/musica.wav" autoplay loop="loop"></audio>
@@ -22,6 +30,74 @@
 <source src="snd/godzilla.wav" type="audio/wav">
 Ты быдло?
 </audio></marquee>
+  <canvas id="sussus"></canvas>
+  <script>
+    
+    class Susik {
+    constructor(canvas, options = []) {
+        this.canvas = canvas;
+        this.context = canvas.getContext("2d");
+        this.limit = options.limit;
+        this.playing = !!options.playing;
+        this.u = options.u;
+        this._time = 0;
+        this._frame = 0;
+        
+        this._setDimensions(options.width, options.height);
+        this._setShortFunctions();
+
+        if (this.playing) {
+            this.playing = false;
+            this.startAnimation();
+        }
+    }
+
+    _setDimensions(width, height) {
+        this.canvas.width = width || this.canvas.offsetWidth;
+        this.canvas.height = height || this.canvas.offsetHeight;
+    }
+
+    _setShortFunctions() {
+        this.S = Math.sin;
+        this.C = Math.cos;
+        this.T = Math.tan;
+        this.R = (r = 0, g = 0, b = 0, a = 1) => `rgba(${r}, ${g}, ${b}, ${a})`;
+    }
+
+    startAnimation() {
+        if (!this.playing) {
+            this.playing = true;
+            this._loop();
+        }
+    }
+
+    stopAnimation() {
+        this.playing = false;
+    }
+
+    _loop() {
+        if (this.playing && (this.limit === undefined || this.limit > this._frame)) {
+            this._time = this._frame / 60;
+            
+            if (this._time * 60 | 0 == this._frame - 1) {
+                this._time += 0.000001;
+            }
+
+            this._frame++;
+
+            this.u(this.canvas, this.context, this._time, this.S, this.C, this.T, this.R);
+            window.requestAnimationFrame(this._loop.bind(this));
+        }
+    }
+}
+    
+  const playground = document.querySelector("#playground");
+        const dwitter = new Susik(playground, {
+            width: 1920,
+            height: 1080,
+            playing: true,
+            u: (c, x, t, S, C, T, R) => {with(x)t?(rotate(.0002),strokeRect(a=-390,a,780,780),drawImage(c,-956,-536,1912,1072),strokeStyle=`hsl(${t*9},99%,50%)`):translate(960,540)}});
+  </script>
 </main>
 <footer>
 <p>© Tralka22, 2020</p>
