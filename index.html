@@ -84,10 +84,10 @@
 }
     
   const playground = document.querySelector("#sussus");
-    const w = screen.width;
+    const w = 2 * screen.width // 3;
     const h = screen.height // 4;
         const dwitter = new Susik(playground, {
-            width: 2 * w // 3,
+            width: w,
             height: h,
             playing: true,
             u: (c, x, t, S, C, T, R) => {with(x)t?(rotate(.0002),strokeRect(a=-390,a,780,780),drawImage(c,-956,-536,w-8,h-8),strokeStyle=`hsl(${t*9},99%,50%)`):translate(960,540)}});
