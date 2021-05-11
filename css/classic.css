@@ -27,6 +27,13 @@ header {
   margin-bottom: 30px;
 }
 
+#sussus {
+            outline: 0px dashed #ccc;
+            width: 100%;
+            height: 540px;
+            display: flex;
+        }
+
 footer {
   display: flex;
   justify-content: space-between;
